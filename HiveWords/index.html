@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Bee</title>
+    <link rel="stylesheet" href="hive.css">
+</head>
+<body>
+
+    <!-- hex grid per contenere le lettere -->
+    <div class="hex-grid">
+        <div class="hex" id="hex0"></div>
+        <div class="hex" id="hex1"></div>
+        <div class="hex" id="hex2"></div>
+        <div class="hex" id="hex3"></div>
+        <div class="hex" id="hex4"></div>
+        <div class="hex" id="hex5"></div>
+        <div class="hex" id="hex6"></div>
+    </div>
+
+
+    <div id="letters"></div>
+    <!-- casella di testo e pulsante submit -->
+    <input type="text" id="wordInput" placeholder="Enter your word">
+    <button onclick="checkWord()">Submit</button>
+    <div id="result"></div>
+
+    <!-- parole trovate -->
+    <div id="foundWords">
+        <h3>Parole trovate:</h3>
+        <ul id="wordsList"></ul>
+    </div>
+
+    <!-- punti -->
+    <div id="score">
+        <h3>Punti:</h3>
+        <p id="points">0</p>
+    </div>
+
+    <!-- javascript -->
+    <script src="bee.js"></script>
+</body>
+</html>
