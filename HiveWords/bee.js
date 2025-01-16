@@ -1,7 +1,7 @@
 // spellingBee.js
 
-const letters = ['A', 'R', 'D', 'V', 'R', 'K', 'S']; // Lettere di esempio
-const centralLetter = 'A'; // Lettera centrale obbligatoria
+const letters = ['B', 'N', 'Y', 'L', 'A', 'O', 'T']; // Lettere di esempio
+const centralLetter = 'B'; // Lettera centrale obbligatoria
 // const validWords = ['AB', 'AC', 'AD', 'AE', 'AF', 'AG']; // Parole valide di esempio
 const foundWords = []; // Array per salvare le parole trovate
 let points = 0; // Variabile per i punti
