@@ -16,6 +16,7 @@ body {
     width: 200px;
     height: 230px;
     position: relative;
+    margin: 10px;
 }
 
 .hex {
@@ -76,4 +77,31 @@ body {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px; /* Aumenta la dimensione dei pulsanti */
+    font-size: 16px; /* Aumenta la dimensione del testo */
+    border-radius: 10px; /* Bordi arrotondati */
+    border-width: 1px;
+    background-color: white; /* Colore di sfondo */
+    border-color: black;
+    border-style: solid;
+    color: black; /* Colore del testo */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(247, 218, 33); /* Colore di sfondo al passaggio del mouse */
+}
+
+#wordInput {
+    padding: 10px 20px; /* Aumenta la dimensione dei pulsanti */
+    font-size: 20px; /* Aumenta la dimensione del testo */
+    border: none;
+    background-color: white; /* Colore di sfondo */
+    color: black; /* Colore del testo */
+    cursor: pointer;
+    text-align: center;
 }

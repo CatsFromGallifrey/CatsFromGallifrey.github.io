@@ -28,18 +28,19 @@ function deleteLastLetter() {
 }
 
 function shuffleLetters() {
-    // declare shuffle function 
-    const shuffle = (array) => { 
-        for (let i = array.length - 1; i > 0; i--) { 
-        const j = Math.floor(Math.random() * (i + 1)); 
-        [array[i], array[j]] = [array[j], array[i]]; 
-        } 
-        return array; 
-    };
-
-    outerLetters = shuffle(outerLetters);
+    // const outerLetters = letters.slice(1); // Prendi le lettere esterne
+    for (let i = outerLetters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [outerLetters[i], outerLetters[j]] = [outerLetters[j], outerLetters[i]]; // Scambia le lettere
+    }
     outerLetters.forEach((letter, index) => {
-        document.getElementById(`hex${index + 1}`).innerText = letter; // Aggiorna gli esagoni
+        const hexElement = document.getElementById(`hex${index + 1}`);
+        hexElement.innerText = letter;
+        hexElement.replaceWith(hexElement.cloneNode(true)); // Rimuove tutti gli event listener
+        const newHexElement = document.getElementById(`hex${index + 1}`);
+        newHexElement.addEventListener('click', () => {
+            addLetterToInput(letter);
+        });
     });
 }
 
@@ -60,21 +61,30 @@ document.getElementById('wordInput').addEventListener('input', (event) => {
 function checkWord() {
     const word = document.getElementById('wordInput').value.toUpperCase();
 
-    if (word.length < 4) {
+    if (!word.includes(centralLetter)) {
+        document.getElementById('result').innerText = 'Manca la lettera centrale';
+        document.getElementById('wordInput').value = '';
+    }
+
+    else if (word.length < 4) {
         document.getElementById('result').innerText = 'Parola troppo corta';
+        document.getElementById('wordInput').value = '';
     }
 
     else if (foundWords.includes(word)) {
         document.getElementById('result').innerText = 'Parola già trovata';
+        document.getElementById('wordInput').value = '';
     }
 
     else if (word.includes(centralLetter) && validWords.includes(word.toLowerCase()) && !foundWords.includes(word)) {
         const containsAllLetters = letters.every(letter => word.includes(letter));
         if (containsAllLetters) {
             document.getElementById('result').innerText = 'Spangram!';
+            document.getElementById('wordInput').value = '';
         }
         else {
             document.getElementById('result').innerText = 'Parola valida!';
+            document.getElementById('wordInput').value = '';
         }
         foundWords.push(word);
         updateWordsList();
@@ -83,6 +93,7 @@ function checkWord() {
     
     else {
         document.getElementById('result').innerText = 'Parola non valida';
+        document.getElementById('wordInput').value = '';
     }
 
     const resultElement = document.getElementById('result');
