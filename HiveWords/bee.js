@@ -1,7 +1,8 @@
 // spellingBee.js
 
-const letters = ['B', 'N', 'Y', 'L', 'A', 'O', 'T']; // Lettere di esempio
-const centralLetter = 'B'; // Lettera centrale obbligatoria
+const letters = ['B', 'L', 'Y', 'O', 'T', 'A', 'N']; // Lettere di esempio
+const centralLetter = letters[0]; //'A'; // Lettera centrale obbligatoria
+let outerLetters = letters.slice(1);
 // const validWords = ['AB', 'AC', 'AD', 'AE', 'AF', 'AG']; // Parole valide di esempio
 const foundWords = []; // Array per salvare le parole trovate
 let points = 0; // Variabile per i punti
@@ -20,6 +21,27 @@ letters.forEach((letter, index) => {
         addLetterToInput(letter);
     });
 });
+
+function deleteLastLetter() {
+    const input = document.getElementById('wordInput');
+    input.value = input.value.slice(0, -1); // Rimuove l'ultima lettera
+}
+
+function shuffleLetters() {
+    // declare shuffle function 
+    const shuffle = (array) => { 
+        for (let i = array.length - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [array[i], array[j]] = [array[j], array[i]]; 
+        } 
+        return array; 
+    };
+
+    outerLetters = shuffle(outerLetters);
+    outerLetters.forEach((letter, index) => {
+        document.getElementById(`hex${index + 1}`).innerText = letter; // Aggiorna gli esagoni
+    });
+}
 
 function addLetterToInput(letter) {
     const input = document.getElementById('wordInput');

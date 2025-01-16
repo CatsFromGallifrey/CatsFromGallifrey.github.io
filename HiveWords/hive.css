@@ -19,8 +19,8 @@ body {
 }
 
 .hex {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-color: rgb(231, 231, 231);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
@@ -30,14 +30,16 @@ body {
     color: black;
     position: absolute;
     cursor: pointer;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-weight: bold;
 }
 
 #hex0 { top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgb(247, 218, 33); }
 #hex1 { top: 0; left: 50%; transform: translate(-50%, 0); }
-#hex2 { top: 25%; left: 0; transform: translate(0, -50%); }
-#hex3 { top: 25%; left: 100%; transform: translate(-100%, -50%); }
-#hex4 { top: 75%; left: 0; transform: translate(0, -50%); }
-#hex5 { top: 75%; left: 100%; transform: translate(-100%, -50%); }
+#hex2 { top: 25%; left: 0; transform: translate(-20%, -30%); }
+#hex3 { top: 25%; left: 100%; transform: translate(-80%, -30%); }
+#hex4 { top: 75%; left: 0; transform: translate(-20%, -70%); }
+#hex5 { top: 75%; left: 100%; transform: translate(-80%, -70%); }
 #hex6 { top: 100%; left: 50%; transform: translate(-50%, -100%); }
 
 #foundWords {
@@ -68,4 +70,10 @@ body {
 #score {
     margin-top: 20px;
     text-align: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }

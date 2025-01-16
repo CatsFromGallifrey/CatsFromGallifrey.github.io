@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hive Words</title>
+    <title>Spelling Bee</title>
     <link rel="stylesheet" href="hive.css">
 </head>
 <body>
+
+    <!-- punti -->
+    <div id="score">
+        <h3>Punti 🐝:</h3>
+        <p id="points">0</p>
+    </div>
 
     <!-- hex grid per contenere le lettere -->
     <div class="hex-grid">
@@ -23,19 +29,17 @@
     <div id="letters"></div>
     <!-- casella di testo e pulsante submit -->
     <input type="text" id="wordInput" placeholder="Enter your word">
-    <button onclick="checkWord()">Submit</button>
+    <div class="button-container">
+        <button onclick="deleteLastLetter()">Delete</button>
+        <button onclick="shuffleLetters()">Shuffle</button>
+        <button onclick="checkWord()">Enter</button>
+    </div>
     <div id="result"></div>
 
     <!-- parole trovate -->
     <div id="foundWords">
         <h3>Parole trovate:</h3>
         <ul id="wordsList"></ul>
-    </div>
-
-    <!-- punti -->
-    <div id="score">
-        <h3>Punti:</h3>
-        <p id="points">0</p>
     </div>
 
     <!-- javascript -->
