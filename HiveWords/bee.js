@@ -1,6 +1,6 @@
 // spellingBee.js
 
-const letters = ['C', 'A', 'Y', 'I', 'T', 'N', 'E']; // Lettere di esempio
+const letters = ['G', 'A', 'R', 'U', 'T', 'N', 'O']; // Lettere di esempio
 const centralLetter = letters[0]; //'A'; // Lettera centrale obbligatoria
 let outerLetters = letters.slice(1);
 // const validWords = ['AB', 'AC', 'AD', 'AE', 'AF', 'AG']; // Parole valide di esempio
