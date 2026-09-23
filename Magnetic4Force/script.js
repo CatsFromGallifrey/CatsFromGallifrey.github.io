@@ -3,9 +3,13 @@ const gameBoard = document.querySelector('#gameboard');
 const redPanel = document.querySelector('#redpanel');
 const whitePanel = document.querySelector('#whitepanel');
 
+// // define pieces
+// const Villain = `<div class="piece villain"><svg class="red"></svg></div>`
+// const Hero = `<div class="piece hero"><svg class="white"></svg></div>`
+
 // define pieces
-const Villain = `<div class="piece villain"><svg class="red"></svg></div>`
-const Hero = `<div class="piece hero"><svg class="white"></svg></div>`
+const Villain = `<div class="piece squared villain"></div>`
+const Hero = `<div class="piece circled hero"></div>`
 
 // RULES FOR COLORS
 // pieces become their own color on squares with spin 0
@@ -24,7 +28,7 @@ spinSet.push(Math.round(Math.random()));
 // now shuffle the set of colors
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i+1));
+        const j = Math.floor(Math.random() * (i + 1));
         [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
@@ -89,9 +93,9 @@ let startPositionID;
 function clickEvent(e) {
     e.stopPropagation();
 
-    if (e.target.localName == 'svg') {
+    if (e.target.classList.contains('piece')) {
 
-        const piece = e.target.parentNode;
+        const piece = e.target;
         startPositionID = piece.parentNode.getAttribute('square-id');
 
         // console.log(e);
@@ -128,24 +132,23 @@ function clickEvent(e) {
     // based on the shape (hero vs villain)
     let spin = currentSqaure.getAttribute('square-spin');
     let type = selectedPiece.classList.contains('hero') ? 'hero' : 'villain';
-    
-    // the color is given to the svg
-    let svg = selectedPiece.firstChild;
+
+    // the color is given to the ......
     if (spin == 0 && type == 'hero') {
-        svg.classList.remove('red');
-        svg.classList.add('white');
+        selectedPiece.classList.remove('villain');
+        selectedPiece.classList.add('hero');
     }
     if (spin == 0 && type == 'villain') {
-        svg.classList.remove('white');
-        svg.classList.add('red');
+        selectedPiece.classList.remove('hero');
+        selectedPiece.classList.add('villain');
     }
-        if (spin == 1 && type == 'hero') {
-        svg.classList.remove('white');
-        svg.classList.add('red');
+    if (spin == 1 && type == 'hero') {
+        selectedPiece.classList.remove('hero');
+        selectedPiece.classList.add('villain');
     }
-        if (spin == 1 && type == 'villain') {
-        svg.classList.remove('red');
-        svg.classList.add('white');
+    if (spin == 1 && type == 'villain') {
+        selectedPiece.classList.remove('villain');
+        selectedPiece.classList.add('hero');
     }
 
 

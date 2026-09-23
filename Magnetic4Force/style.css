@@ -43,51 +43,42 @@ body {
 }
 
 #whitepanel .square {
-    border-radius: 50px;
-}
-
-.square svg{
-    width: 80px;
-    height: 80px;
-    border: 2px solid black;
-    position: relative;
-    z-index: -9;
-    /* transition: box-shadow 0.3s ease; */
-}
-
-.villain svg {
-    border-radius: 8px;
-}
-
-.hero svg {
-    border-radius: 40px;
-}
-
-path {
-    position: relative;
-    z-index: -10;
+    border-radius: 50%;
 }
 
 .piece {
-    position: relative;
-    z-index: 10;
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+    /* position: relative;
+    z-index: 10; */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150%;
 }
 
-.white {
-    background-color: white;
-}
-
-.red {
-    background-color: red;
-}
-
-svg:hover {
+.piece:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
-.selected svg{
+.selected {
     border: gold 8px solid;
+}
+
+.squared {
+    border-radius: 10%;
+}
+.circled {
+    border-radius: 50%;
+}
+.hero {
+    background-image: url(svg/heros_piece.svg);
+    transition: background-image 0.3s ease;
+}
+.villain {
+    background-image: url(svg/villains_piece.svg);
+    transition: background-image 0.3s ease;
 }
